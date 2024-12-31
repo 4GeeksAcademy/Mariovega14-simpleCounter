@@ -6,8 +6,27 @@ import ReactDOM from "react-dom/client";
 import "../styles/index.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import SecondsCounter from "./components/SecondsCounter.jsx";
 
-//render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+let counter = 0
+setInterval(() => {
+    const one = Math.floor(counter / 1)
+    const two = Math.floor(counter / 10)
+    const three = Math.floor(counter / 100)
+    const four = Math.floor(counter / 1000)
 
+    counter++
+    //render your react application
+    ReactDOM.createRoot(document.getElementById('app')).render(
+        
+        <SecondsCounter
+        
+            numOne={one}
+            numTwo={two}
+            numThree={three}
+            numFour={four}
+        />
+
+
+    );
+}, 1000)
